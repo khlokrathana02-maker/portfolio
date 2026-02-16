@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<section class="contact-section" id="contacts">
+    <h1 class="title">
+        <span class="gradient-text">My Contacts</span>
+    </h1>
+    <div class="container-contact">
+
+        <!-- LEFT SIDE -->
+
+        <div class="contact-left">
+            <a href="https://mail.google.com/mail/u/0/#sent?compose=jrjtXFBHnGFchCGgFsvhTvQmcTHjXZlZWCzdPCcTcLHxRLMDwrqcXTgVXFcjMTxWlBbGLHxJ">
+                <div class="info-box">
+                    <i><img src="https://cdn-icons-png.flaticon.com/128/2099/2099199.png" class="icon-contact"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <span>khlokrathana02@gmail.com</span>
+                    </div>
+                </div>
+            </a>
+            <a href="tel:+855978901291">
+                <div class="info-box">
+                    <i><img src="https://cdn-icons-png.flaticon.com/128/597/597177.png" class="icon-contact"></i>
+
+                    <div>
+                        <h3>Phone</h3>
+                        <span>+855 97 890 1291</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://t.me/khlokrathana">
+                <div class="info-box">
+                    <i><img src="https://cdn-icons-png.flaticon.com/128/2111/2111708.png" class="icon-contact"></i>
+                    <div>
+                        <h3>Telegram</h3>
+                        <span>Khlok Rathana</span>
+                    </div>
+
+                </div>
+            </a>
+            <a href="https://m.me/rathana.naa.02" target="_blank">
+                <div class="info-box">
+                    <i><img src="https://cdn-icons-png.flaticon.com/128/9333/9333888.png" class="icon-contact"></i>
+
+                    <div>
+                        <h3>Messenger</h3>
+                        <span>RathAna Naa</span>
+                    </div>
+
+                </div>
+            </a>
+            <a href="https://maps.app.goo.gl/StPjzJJu8oWyTMCAA"
+               target="_blank">
+                <div class="info-box">
+                    <i><img src="https://cdn-icons-png.flaticon.com/128/9077/9077975.png" class="icon-contact"></i>
+
+                    <div>
+                        <h3>Location</h3>
+                        <span>Street 192, Sangkat Teuk Laak III, Khan Toul Kork, Phnom Penh, Cambodia</span>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="contact-right">
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">SEND MESSAGE</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+<section class="footer">
+    <div class="footer-container">
+        <p class="copyright">
+            © 2026 RathAna Naa. All rights reserved.
+        </p>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const botToken = '8478790674:AAHT054lEBAoPC4IYVONW7kBRdxzyJCCXy8';
+        const chatId = '1745572935';
+
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const text = `💌  New Message from Website  💌\n\n 👧🏻  Name: ${name}\n✉️  Email: ${email}\n🗨️  Message: ${message}`;
+
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
+                .then(response => {
+                    if (response.ok) {
+                        alert('Message sent to Telegram!');
+                        form.reset();
+                    } else {
+                        alert('Failed to send message.');
+                    }
+                })
+                .catch(err => alert('Error: ' + err));
+        });
+    });
+
+
+</script>
+
+</body>
+</html>

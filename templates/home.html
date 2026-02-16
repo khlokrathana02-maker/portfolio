@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RathAna Naa</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="#home">
+                <h2>RathAna Naa</h2>
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#education">Educations</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#cv">CV</a></li>
+                <span class="slider"></span>
+            </ul>
+        </nav>
+        <a href="#contacts" class="btn">Contact Me</a>
+
+        <div class="hamburger" id="menuBtn" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</header>
+<div class="mobile-nav" id="mobileMenu">
+    <div class="hamburger" id="menuBtn" onclick="toggleMenu()">
+        <img src="/static/image/arrow.png" alt="Close menu">
+    </div>
+
+    <a href="#home" class="nav-link"><img src="/static/image/home.png" alt="Home Icon">Home</a>
+    <a href="#about" class="nav-link"><img src="/static/image/user.png" alt="Home Icon">About Me</a>
+    <a href="#education" class="nav-link"><img src="/static/image/education.png" alt="Home Icon">Educations</a>
+    <a href="#skills" class="nav-link"><img src="/static/image/skill-development.png" alt="Home Icon">Skills</a>
+    <a href="#projects" class="nav-link"><img src="/static/image/book.png" alt="Home Icon">Projects</a>
+    <a href="#cv" class="nav-link"><img src="/static/image/cv-icon.png" alt="Home Icon">CV</a>
+    <a href="#contacts" class="mobile-btn">Contact Me</a>
+</div>
+
+
+<section class="main" id="home">
+    <div class="container-home">
+
+        <div class="hero-text">
+            <p class="intro">Hello, My Name Is</p>
+            <h1>Khlok Rathana</h1>
+
+            <p class="subtitle">
+                Mobile Application, Web Developer & Designer
+            </p>
+            <div class="more">
+                <button class="btn-more">Know More<img src="/static/image/arrow.png" alt="arrow" class="btn-icon">
+                </button>
+                <div class="icon-know">
+                    <a href="https://www.facebook.com/share/17uFjojBxi/?mibextid=wwXIfr" target="_blank"
+                       rel="noopener noreferrer">
+                        <img src="/static/image/facebook.png" alt="Facebook" class="btn-icon-outside">
+                    </a>
+                    <a href="https://www.instagram.com/zeii7497?igsh=ZHZ6aHp3cXE0emNt&utm_source=qr" target="_blank"
+                       rel="noopener noreferrer">
+                        <img src="/static/image/instagram.png" alt="Facebook" class="btn-icon-outside">
+                    </a>
+                    <a href="https://github.com/khlokrathana02-maker" target="_blank"
+                       rel="noopener noreferrer">
+                        <img src="/static/image/github.png" alt="Facebook" class="btn-icon-outside">
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="hero-image">
+            <img src="/static/image/rathana.png" alt="Khlok Rathana">
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("menuBtn");
+
+        if (menu && btn) {
+            menu.classList.toggle("active");
+            btn.classList.toggle("active");
+        }
+    }
+
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navbar ul li a");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 50) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+                link.classList.add("active");
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>
+{% extends 'base.html' %}
