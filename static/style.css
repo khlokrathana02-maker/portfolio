@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    background-attachment: fixed;
 }
 
 html {
@@ -16,6 +17,7 @@ body {
     background: linear-gradient(#F5ebe1, #E3d4ca, #D4bcaf);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    position: relative;
 }
 
 /* Header */
@@ -271,6 +273,7 @@ body {
 }
 
 @media (max-width: 950px) {
+
     .btn {
         display: none;
     }
@@ -279,9 +282,6 @@ body {
         padding: 0 40px;
     }
 
-    .hero-image img {
-        max-width: 400px;
-    }
 
 }
 
@@ -318,9 +318,13 @@ body {
         text-align: center;
     }
 
+    .bio-image {
+        justify-content: center; /* horizontal center */
+    }
+
     .bio-image img {
-        width: 220px;
         margin-bottom: 20px;
+        max-width: 100%;
     }
 
     .card {
@@ -391,7 +395,7 @@ body {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 85%;
     max-width: 1200px;
     display: flex;
     align-items: center;
@@ -434,13 +438,13 @@ h1 {
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
     z-index: 10;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-image img {
-    max-width: 600px;
-    border-radius: 15px;
+    max-width: 80%;
     object-fit: cover;
     transform: scale(1.1);
     margin-top: -20px;
@@ -517,7 +521,7 @@ a {
 
 /*about Me Page*/
 .bio {
-    padding: 40px 20px;
+    padding: 0 20px;
 }
 
 .bio-container {
@@ -708,16 +712,15 @@ h2.languages-heading {
 
 .tech-item {
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
-    width: 200px;
-    height: 200px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0 4px 10px rgb(255, 255, 255); /* horizontal, vertical, blur, color */
+    box-shadow: 0 4px 10px rgb(255, 255, 255);
 }
 
 .tech-item:hover {
@@ -1120,6 +1123,7 @@ h2.project-heading {
 
 /*Footer*/
 .footer {
+
     background: rgba(255, 255, 255, 0.2); /* transparent */
     backdrop-filter: blur(12px); /* glass blur */
     -webkit-backdrop-filter: blur(12px); /* safari support */

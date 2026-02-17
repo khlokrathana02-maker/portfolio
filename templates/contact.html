@@ -16,7 +16,7 @@
         <!-- LEFT SIDE -->
 
         <div class="contact-left">
-            <a href="https://mail.google.com/mail/u/0/#sent?compose=jrjtXFBHnGFchCGgFsvhTvQmcTHjXZlZWCzdPCcTcLHxRLMDwrqcXTgVXFcjMTxWlBbGLHxJ">
+            <a href="mailto:khlokrathana02@gmail.com">
                 <div class="info-box">
                     <i><img src="https://cdn-icons-png.flaticon.com/128/2099/2099199.png" class="icon-contact"></i>
                     <div>
@@ -75,6 +75,7 @@
             <form id="contactForm">
                 <input type="text" id="name" placeholder="Your Name" required>
                 <input type="email" id="email" placeholder="Your Email" required>
+                <input type="phone" id="phone" placeholder="Your PhoneNumber" required>
                 <textarea id="message" placeholder="Your Message" required></textarea>
                 <button type="submit">SEND MESSAGE</button>
             </form>
@@ -101,9 +102,10 @@
 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
 
-            const text = `💌  New Message from Website  💌\n\n 👧🏻  Name: ${name}\n✉️  Email: ${email}\n🗨️  Message: ${message}`;
+            const text = `💌  New Message from Website  💌\n\n 👧🏻  Name: ${name}\n✉️  Email: ${email}\n📞  Phone: ${phone}\n🗨️  Message: ${message}`;
 
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
                 .then(response => {
