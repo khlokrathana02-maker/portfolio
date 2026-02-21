@@ -279,7 +279,7 @@ body {
     }
 
     .container-home {
-        padding: 0 40px;
+        padding-top: 40px;
     }
 
 
@@ -304,9 +304,6 @@ body {
         margin-top: 30px;
     }
 
-    .hero-image img {
-        max-width: 300px;
-    }
 
     .bio-container {
         flex-direction: column;
@@ -763,6 +760,7 @@ body::before {
 
 .team-card {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 40px;
     width: 85%;
@@ -771,6 +769,7 @@ body::before {
 }
 
 .member {
+    flex: 1 1 45%;
     display: flex;
     align-items: center;
     gap: 20px;
